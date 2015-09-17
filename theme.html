@@ -1,0 +1,754 @@
+<!doctype html>
+<html>
+<head>
+
+  <style type="text/css">
+  @import url('http://codeweek.eu/stylesheets/core.css');
+  </style>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Europe Code Week 2015 - News</title>
+
+  <style type="text/css">
+    .content header {
+      margin: 25px 0 30px;
+    }
+    .content header h1 {
+      padding: 0;
+      margin: 0;
+    }
+    .content header p {
+      padding: 3px 0 0;
+    }
+
+    .post {
+      background: #fff;
+      box-shadow: #d6e4f0 0px 2px 2px;
+      margin: 10px 0;
+      padding: 20px;
+    }
+
+    .post h1 {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 0 0 15px;
+      margin: 0 0;
+    }
+
+    .metadata {
+      font-size: 13px;
+      border-top: 1px solid #eee;
+      padding-top: 5px;
+      margin-top: 15px;
+    }
+    .metadata .date, .metadata .notes-count {
+      display: inline-block;
+    }
+    .metadata .notes-count {
+      margin-left: 15px;
+    }
+
+    .videoWrapper {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Stop large images bleeding out of posts */
+    .wide img {
+      max-width: 100%;
+    }
+
+    .pagination {
+      font-size: 18px;
+      overflow: auto;
+      position: relative;
+      display: block;
+    }
+    .pagination a {
+
+    }
+    .pagination a.previous {
+      float: left;
+    }
+    .pagination a.next {
+      float: right;
+    }
+
+    .notes {
+      font-size: 14px;
+      line-height: 25px;
+      padding-left: 20px;
+    }
+    .notes li {
+      list-style: none;
+      margin: 5px 0;
+    }
+    .notes li .avatar_frame {
+      padding-right: 7px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header class="small">
+    <div class="inner row">
+      <h1><a href="http://codeweek.eu/">CodeWeek.EU</a></h1>
+      <h2>10th &mdash; 18th October &bull; <a href="https://twitter.com/search?q=%23codeEU&amp;f=realtime">#codeEU</a></h2>
+
+      <nav>
+        <ul>
+          <li><a href="http://events.codeweek.eu/">Events</a></li>
+          <li><a href="http://codeweek.eu/resources/">Resources</a></li>
+          <li><a href="http://codeweek.eu/code/">Why coding?</a></li>
+          <li><a href="http://codeweek.eu/about/">About</a></li>
+          <li><strong><a href="/">News</a></strong></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="content wrap">
+    <header>
+      <h1>News and Updates</h1>
+      <p class="byline">News and updates from the Code Week team and <a href="http://blog.codeweek.eu/submit">your coding stories</a>.</p>
+    </header>
+
+    {block:Posts}
+      {block:Text}
+        <!-- TEXT POST
+    ///////////////////////////////////////////////////////-->
+
+    <div class="post text">
+
+      <div class="narrow">
+
+                    {block:Title}
+        <div class="title">
+          <h1><a href="{Permalink}">{Title}</a></h1>
+        </div>
+                    {/block:Title}
+
+        <div class="caption">
+
+        {Body}
+
+        </div> <!-- End caption -->
+
+                    {block:More}
+        <div class="more">
+          <a href="{Permalink}">Read More...</a>
+        </div>
+                    {/block:More}
+
+        <div class="metadata">
+
+                        {block:Date}
+              <div class="date">
+            <a href="{Permalink}">{ShortMonth}. {DayOfMonth} {Year}</a>
+          </div>
+                        {/block:Date}
+
+                        {block:ContentSource}
+              <div class="date">
+            <a href="{SourceURL}">Via {SourceTitle}</a>
+          </div>
+                        {/block:ContentSource}
+
+                        {block:IfShowPostTags}
+          {block:HasTags}
+                        <div class="tags">
+                            {block:Tags}
+            <a href="{TagURL}">#{Tag}</a>
+              {/block:Tags}
+          </div>
+                        {/block:HasTags}
+            {/block:IfShowPostTags}
+
+                        {block:NoteCount}
+                        <div class="notes-count">
+            <a href="{Permalink}">{NoteCountWithLabel}</a>
+          </div>
+                        {/block:NoteCount}
+
+        </div> <!-- metadata end -->
+
+      </div> <!-- text end -->
+
+    </div> <!-- post end -->
+            {/block:Text}
+
+    {block:Photo}
+    <!-- PHOTO POST
+    ///////////////////////////////////////////////////////-->
+
+    <div class="post photo">
+
+      <div class="wide">
+                    {LinkOpenTag}
+
+        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+
+                    {LinkCloseTag}
+      </div>
+
+      <div class="narrow">
+
+                    {block:Caption}
+        <div class="caption">
+            {Caption}
+        </div>
+                    {/block:Caption}
+
+        <div class="metadata">
+
+          {block:Date}
+            <div class="date">
+            <a href="{Permalink}">{ShortMonth}. {DayOfMonth} {Year}</a>
+          </div>
+                        {/block:Date}
+
+                        {block:ContentSource}
+              <div class="date">
+            <a href="{SourceURL}">Via {SourceTitle}</a>
+          </div>
+                        {/block:ContentSource}
+
+                        {block:IfShowPostTags}
+          {block:HasTags}
+                        <div class="tags">
+                            {block:Tags}
+            <a href="{TagURL}">#{Tag}</a>
+              {/block:Tags}
+          </div>
+                        {/block:HasTags}
+            {/block:IfShowPostTags}
+
+                        {block:NoteCount}
+                        <div class="notes-count">
+            <a href="{Permalink}">{NoteCountWithLabel}</a>
+          </div>
+                        {/block:NoteCount}
+
+        </div> <!-- metadata end -->
+
+      </div> <!-- narrow end -->
+
+    </div> <!-- post end -->
+
+            {/block:Photo}
+
+
+            {block:Photoset}
+      <!-- PHOTOSET POST
+    ///////////////////////////////////////////////////////-->
+
+    <div class="post photo">
+
+      {block:IfNotPhotosetLayout}
+      <div class="wide">
+                    {block:Photos}
+                    {LinkOpenTag}
+        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                    {LinkCloseTag}
+                    {/block:Photos}
+      </div>
+      {/block:IfNotPhotosetLayout}
+
+      {block:IfPhotosetLayout}
+      <div class="photoset-layout">
+                 {Photoset}
+      </div class="photoset-layout">
+      {/block:IfPhotosetLayout}
+
+      <div class="narrow">
+
+                    {block:Caption}
+        <div class="caption">
+            {Caption}
+        </div>
+                    {/block:Caption}
+
+        <div class="metadata">
+
+          {block:Date}
+            <div class="date">
+            <a href="{Permalink}">{ShortMonth}. {DayOfMonth} {Year}</a>
+          </div>
+                        {/block:Date}
+
+                        {block:ContentSource}
+              <div class="date">
+            <a href="{SourceURL}">Via {SourceTitle}</a>
+          </div>
+                        {/block:ContentSource}
+
+                        {block:IfShowPostTags}
+          {block:HasTags}
+                        <div class="tags">
+                            {block:Tags}
+            <a href="{TagURL}">#{Tag}</a>
+              {/block:Tags}
+          </div>
+                        {/block:HasTags}
+            {/block:IfShowPostTags}
+
+                        {block:NoteCount}
+                        <div class="notes-count">
+            <a href="{Permalink}">{NoteCountWithLabel}</a>
+          </div>
+                        {/block:NoteCount}
+
+        </div> <!-- metadata end -->
+
+      </div> <!-- narrow end -->
+
+    </div> <!-- post end -->
+
+            {/block:Photoset}
+
+
+    {block:Link}
+    <!-- LINK POST
+    ///////////////////////////////////////////////////////-->
+
+    <div class="post link">
+
+      <div class="narrow">
+
+        <div class="link-title">
+
+          <h1><a href="{URL}">{Name} <span class="link-arrow">&#10132;</span></a></h1>
+
+        </div>
+
+                    {block:Description}
+        <div class="caption">
+           {Description}
+        </div>
+                    {/block:Description}
+
+        <div class="metadata">
+
+          {block:Date}
+              <div class="date">
+            <a href="{Permalink}">{ShortMonth}. {DayOfMonth} {Year}</a>
+          </div>
+                        {/block:Date}
+
+                        {block:ContentSource}
+              <div class="date">
+            <a href="{SourceURL}">Via {SourceTitle}</a>
+          </div>
+                        {/block:ContentSource}
+
+                        {block:IfShowPostTags}
+          {block:HasTags}
+                        <div class="tags">
+                            {block:Tags}
+            <a href="{TagURL}">#{Tag}</a>
+              {/block:Tags}
+          </div>
+                        {/block:HasTags}
+            {/block:IfShowPostTags}
+
+                        {block:NoteCount}
+                        <div class="notes-count">
+            <a href="{Permalink}">{NoteCountWithLabel}</a>
+          </div>
+                        {/block:NoteCount}
+
+        </div> <!-- metadata end -->
+
+      </div> <!-- narrow end -->
+
+    </div> <!-- post end -->
+    {/block:Link}
+
+
+    {block:Quote}
+    <!-- QUOTE POST
+    ///////////////////////////////////////////////////////-->
+
+    <div class="post quote">
+
+      <div class="narrow">
+
+        <div class="quote-{Length}">
+
+          &#8220;{Quote}&#8221;
+
+        </div>
+
+                    {block:Source}
+        <div class="caption">
+
+          &#8212; {Source}
+
+        </div>
+                    {/block:Source}
+
+        <div class="metadata">
+
+          {block:Date}
+                <div class="date">
+            <a href="{Permalink}">{ShortMonth}. {DayOfMonth} {Year}</a>
+          </div>
+                        {/block:Date}
+
+                        {block:ContentSource}
+              <div class="date">
+            <a href="{SourceURL}">Via {SourceTitle}</a>
+          </div>
+                        {/block:ContentSource}
+
+                        {block:IfShowPostTags}
+          {block:HasTags}
+                        <div class="tags">
+                            {block:Tags}
+            <a href="{TagURL}">#{Tag}</a>
+              {/block:Tags}
+          </div>
+                        {/block:HasTags}
+            {/block:IfShowPostTags}
+
+                        {block:NoteCount}
+                        <div class="notes-count">
+            <a href="{Permalink}">{NoteCountWithLabel}</a>
+          </div>
+                        {/block:NoteCount}
+
+        </div> <!-- metadata end -->
+
+      </div> <!-- narrow end -->
+
+    </div> <!-- post end -->
+            {/block:Quote}
+
+
+            {block:Chat}
+    <!-- CHAT POST
+    ///////////////////////////////////////////////////////-->
+
+    <div class="post chat">
+
+      <div class="narrow">
+
+                    {block:Title}
+        <div class="chat-title">
+          <h1>{Title}</h1>
+        </div>
+                    {/block:Title}
+
+        <div class="caption">
+
+          <ul class="chat">
+            {block:Lines}
+                            <li>
+                                {block:Label}
+                                <span class="{Alt}">
+                                {Label}
+                                </span>
+                                {/block:Label}
+
+                                {Line}
+
+                            </li>
+                            {block:Lines}
+
+          </ul><!-- chat end -->
+
+        </div><!-- caption end -->
+
+        <div class="metadata">
+
+          {block:Date}
+                  <div class="date">
+            <a href="{Permalink}">{ShortMonth}. {DayOfMonth} {Year}</a>
+          </div>
+                        {/block:Date}
+
+                        {block:ContentSource}
+              <div class="date">
+            <a href="{SourceURL}">Via {SourceTitle}</a>
+          </div>
+                        {/block:ContentSource}
+
+                        {block:IfShowPostTags}
+          {block:HasTags}
+                        <div class="tags">
+                            {block:Tags}
+            <a href="{TagURL}">#{Tag}</a>
+              {/block:Tags}
+          </div>
+                        {/block:HasTags}
+            {/block:IfShowPostTags}
+
+                        {block:NoteCount}
+                        <div class="notes-count">
+            <a href="{Permalink}">{NoteCountWithLabel}</a>
+          </div>
+                        {/block:NoteCount}
+
+        </div> <!-- metadata end -->
+
+      </div> <!-- narrow end -->
+
+    </div> <!-- post end -->
+            {/block:Chat}
+
+
+
+    {block:Audio}
+    <!-- AUDIO POST
+    ///////////////////////////////////////////////////////-->
+
+    <div class="post audio">
+
+      <div class="narrow">
+
+
+          {block:AudioEmbed}
+                      {AudioEmbed color="white"}
+                    {/block:AudioEmbed}
+
+                    {block:AlbumArt}
+        <div class="album-art">
+
+          <img src="{AlbumArtURL}">
+
+        </div>
+                    {/block:AlbumArt}
+
+
+                    {block:Caption}
+        <div class="caption">
+          {Caption}
+        </div>
+                    {/block:Caption}
+
+        <div class="metadata">
+
+          {block:Date}
+                    <div class="date">
+            <a href="{Permalink}">{ShortMonth}. {DayOfMonth} {Year}</a>
+          </div>
+                        {/block:Date}
+
+                        {block:ContentSource}
+              <div class="date">
+            <a href="{SourceURL}">Via {SourceTitle}</a>
+          </div>
+                        {/block:ContentSource}
+
+                        {block:IfShowPostTags}
+          {block:HasTags}
+                        <div class="tags">
+                            {block:Tags}
+            <a href="{TagURL}">#{Tag}</a>
+              {/block:Tags}
+          </div>
+                        {/block:HasTags}
+            {/block:IfShowPostTags}
+
+                        {block:NoteCount}
+                        <div class="notes-count">
+            <a href="{Permalink}">{NoteCountWithLabel}</a>
+          </div>
+                        {/block:NoteCount}
+
+        </div> <!-- metadata end -->
+
+      </div> <!-- narrow end -->
+
+    </div> <!-- post end -->
+            {/block:Audio}
+
+
+
+        {block:Video}
+    <!-- VIDEO POST
+    ///////////////////////////////////////////////////////-->
+
+    <div class="post video">
+
+      <div class="wide">
+
+                    <div class="videoWrapper">
+            {VideoEmbed-700}
+                    </div>
+
+      </div>
+
+      <div class="narrow">
+
+                    {block:Caption}
+        <div class="caption">
+
+          {Caption}
+
+        </div>
+                    {/block:Caption}
+
+        <div class="metadata">
+
+          {block:Date}
+                      <div class="date">
+            <a href="{Permalink}">{ShortMonth}. {DayOfMonth} {Year}</a>
+          </div>
+                        {/block:Date}
+
+                        {block:ContentSource}
+              <div class="date">
+            <a href="{SourceURL}">Via {SourceTitle}</a>
+          </div>
+                        {/block:ContentSource}
+
+                        {block:IfShowPostTags}
+          {block:HasTags}
+                        <div class="tags">
+                            {block:Tags}
+            <a href="{TagURL}">#{Tag}</a>
+              {/block:Tags}
+          </div>
+                        {/block:HasTags}
+            {/block:IfShowPostTags}
+
+                        {block:NoteCount}
+                        <div class="notes-count">
+            <a href="{Permalink}">{NoteCountWithLabel}</a>
+          </div>
+                        {/block:NoteCount}
+
+        </div> <!-- metadata end -->
+
+      </div> <!-- narrow end -->
+
+    </div> <!-- post end -->
+            {/block:Video}
+
+      {block:Answer}
+      <!-- ANSWER POST
+      ///////////////////////////////////////////////////////-->
+
+      <div class="post answer">
+
+        <div class="narrow">
+
+          <div class="q">
+
+            <h1 class="qa-letter">Q</h1>
+
+            <div class="asker-block">
+              <img class="asker" src="{AskerPortraitURL-24}">
+              <p>{Asker} asked:</p>
+              <p class="question">{Question}</p>
+            </div>
+
+          </div><!-- q end -->
+
+          <div class="a">
+
+            <h1 class="qa-letter">A</h1>
+
+            <div class="caption" style="overflow:auto;">
+              {Answer}
+            </div>
+
+          </div><!-- a end -->
+
+          <div class="metadata">
+
+            {block:Date}
+                          <div class="date">
+              <a href="{Permalink}">{ShortMonth}. {DayOfMonth} {Year}</a>
+            </div>
+                          {/block:Date}
+
+                          {block:ContentSource}
+                <div class="date">
+              <a href="{SourceURL}">Via {SourceTitle}</a>
+            </div>
+                          {/block:ContentSource}
+
+                          {block:IfShowPostTags}
+            {block:HasTags}
+                          <div class="tags">
+                              {block:Tags}
+              <a href="{TagURL}">#{Tag}</a>
+                {/block:Tags}
+            </div>
+                          {/block:HasTags}
+              {/block:IfShowPostTags}
+
+                          {block:NoteCount}
+                          <div class="notes-count">
+              <a href="{Permalink}">{NoteCountWithLabel}</a>
+            </div>
+                          {/block:NoteCount}
+
+          </div> <!-- metadata end -->
+
+        </div> <!-- narrow end -->
+
+      </div> <!-- post end -->
+      {/block:Answer}
+
+      {PostNotes}
+    {/block:Posts}
+
+    {block:Pagination}
+
+      <div class="pagination">
+        {block:PreviousPage}
+        <a class="previous" href="{PreviousPage}">Previous page</a>
+        {/block:PreviousPage}
+
+        {block:NextPage}
+        <a class="next" href="{NextPage}">Next page</a>
+        {/block:NextPage}
+      </div>
+
+    {/block:Pagination}
+  </section>
+
+  <footer>
+    <div class="inner row">
+      <ul class="links fa-ul col-md-4">
+        <li>
+          <span class="fa-stack fa-sm">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+          </span>
+          <a href="https://twitter.com/codeweekeu" title="@CodeWeekEU on Twitter" class="twitter">CodeWeekEU</a></li>
+        <li>
+          <span class="fa-stack fa-sm">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+          </span>
+          <a href="https://www.facebook.com/codeEU" title="Europe Code Week on Facebook" class="facebook">codeEU</a></li>
+        <li>
+          <span class="fa-stack fa-sm">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+          </span>
+          <a href="https://plus.google.com/+CodeweekEu/" title="Europe Code Week on Google+" class="google">CodeWeekEU</a></li>
+        <li>
+          <span class="fa-stack fa-sm">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+          </span>
+          <a href="https://github.com/codeeu" title="CodeEU on GitHub" class="github">codeeu</a></li>
+      </ul>
+      <div class="team col-md-8">
+        A project by the <a href="http://ec.europa.eu/digital-agenda/en/young-advisors">Young Advisors Group</a> at the <a href="http://ec.europa.eu/index_en.htm">European Commission</a><br>
+        Help us with this website on <a href="https://github.com/codeeu/codeeu.github.io">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
